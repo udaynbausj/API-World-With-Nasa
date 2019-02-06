@@ -4,6 +4,7 @@ import io.code.nasa.Dao.ApiDetails;
 import io.code.nasa.Entity.Info;
 import io.code.nasa.Service.Service;
 import lombok.extern.slf4j.Slf4j;
+import org.joda.time.DateTime;
 import org.json.simple.JSONObject;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,9 @@ import org.springframework.http.*;
 import org.springframework.web.client.RestTemplate;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -56,7 +60,21 @@ public class ServiceImpl implements Service {
     }
 
 
+    public Object getNeos(){
 
+        RestTemplate restTemplate = new RestTemplate();
+
+        Date dt = new Date();
+        DateTime dtOrg = new DateTime(dt);
+        DateTime dtPlusOne = dtOrg.plusDays(1);
+        String today = dtPlusOne.toString().substring(0,10);
+        String date_7daysAfter = dtOrg.plusDays(5).toString().substring(0,10);
+        String url = "https://api.nasa.gov/neo/rest/v1/feed?start_date="+today+"&end_date="+date_7daysAfter+"&api_key="+getKey();
+
+        ResponseEntity<JSONObject>response = restTemplate.exchange(url,HttpMethod.GET,null,JSONObject.class);
+
+        return response.getBody();
+    }
 
 
 }

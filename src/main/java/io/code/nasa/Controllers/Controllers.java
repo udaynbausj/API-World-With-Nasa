@@ -37,4 +37,9 @@ public class Controllers {
     public Object getApod(){
         return service.getApod();
     }
+
+    @GetMapping(value = "/neo")
+    public Object getNeos(){
+        return service.getNeos();
+    }
 }

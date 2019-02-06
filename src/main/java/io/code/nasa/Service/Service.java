@@ -6,4 +6,6 @@ import java.util.Map;
 public interface Service {
 
     Object getApod();
+
+    Object getNeos();
 }
