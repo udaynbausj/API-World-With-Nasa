@@ -24,7 +24,7 @@ public class Controllers {
 //    public Map<String,String> add(){
 //        Info info = new Info();
 //        info.setId(1);
-//        info.setKet("b9PuKpXE2TIWEBx93ia7pwG6TaeQEo1Gb2bM821y");
+//        info.setKet("");
 //        apiDetails.save(info);
 //
 //        Map<String,String> mp = new HashMap<>();
