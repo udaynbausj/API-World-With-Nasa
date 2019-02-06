@@ -42,4 +42,9 @@ public class Controllers {
     public Object getNeos(){
         return service.getNeos();
     }
+
+    @GetMapping(value = "/roverphotos")
+    public Object getMarsPics(){
+        return service.getMarsPics();
+    }
 }

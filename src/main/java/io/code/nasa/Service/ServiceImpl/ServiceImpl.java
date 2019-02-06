@@ -76,5 +76,14 @@ public class ServiceImpl implements Service {
         return response.getBody();
     }
 
+    public Object getMarsPics(){
+        RestTemplate restTemplate = new RestTemplate();
+
+        String url = "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&camera=fhaz&api_key="+getKey();
+        ResponseEntity<JSONObject>response = restTemplate.exchange(url,HttpMethod.GET,null,JSONObject.class);
+
+        return response.getBody();
+    }
+
 
 }

@@ -8,4 +8,6 @@ public interface Service {
     Object getApod();
 
     Object getNeos();
+
+    Object getMarsPics();
 }
